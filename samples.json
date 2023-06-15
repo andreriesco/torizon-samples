@@ -18,5 +18,13 @@
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Community"
         }
+    },
+    "PWM": {
+        "c": {
+            "folder": "pwmC",
+            "baseTemplate": "cppConsole",
+            "baseTemplateSupport": "Toradex",
+            "sampleSupport": "Community"
+        }
     }
 }
