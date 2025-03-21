@@ -1,0 +1,16 @@
+{
+    "docker.environment": {
+        "DOCKER_HOST": "tcp://10.22.1.175:2375",
+        "DEBUG_SSH_PORT": "",
+        "DEBUG_PORT1": "",
+        "DEBUG_PORT2": "",
+        "DEBUG_PORT3": ""
+    },
+    "torizon_psswd": "1",
+    "torizon_login": "torizon",
+    "torizon_ip": "10.22.1.175",
+    "torizon_ssh_port": "22",
+    "host_ip": "10.22.1.188",
+    "torizon_gpu": "-vivante",
+    "torizon_arch": "aarch64"
+}
