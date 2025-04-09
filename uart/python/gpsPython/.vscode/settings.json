@@ -1,16 +1,16 @@
 {
-  "torizon_psswd": "",
-  "torizon_login": "",
-  "torizon_ip": "",
-  "torizon_ssh_port": "",
-  "host_ip": "",
+  "torizon_psswd": "1",
+  "torizon_login": "torizon",
+  "torizon_ip": "10.22.1.89",
+  "torizon_ssh_port": "22",
+  "host_ip": "10.22.1.188",
   "torizon_workspace": "${workspaceFolder}",
   "torizon_debug_ssh_port": "6502",
   "torizon_debug_port1": "6512",
   "torizon_debug_port2": "",
   "torizon_debug_port3": "",
-  "torizon_gpu": "",
-  "torizon_arch": "",
+  "torizon_gpu": "-imx8",
+  "torizon_arch": "aarch64",
   "wait_sync": "1",
   "torizon_run_as": "torizon",
   "torizon_app_root": "/home/torizon/app",
@@ -18,5 +18,12 @@
   "tcb.packageName": "gpsPython",
   "tcb.version": "3.11.0",
   "torizon.gpuPrefixRC": true,
-  "python.defaultInterpreterPath": "./.venv/bin/python3"
+  "python.defaultInterpreterPath": "./.venv/bin/python3",
+  "docker.environment": {
+    "DOCKER_HOST": "tcp://10.22.1.89:2375",
+    "DEBUG_SSH_PORT": "6502",
+    "DEBUG_PORT1": "6512",
+    "DEBUG_PORT2": "",
+    "DEBUG_PORT3": ""
+  }
 }
