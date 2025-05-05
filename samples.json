@@ -4,13 +4,15 @@
             "folder": "adcC",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": "C"
         },
         "python": {
             "folder": "adcPython",
             "baseTemplate": "adcpython",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": "Python"
         }
     },
     "BLUETOOTH": {
@@ -18,7 +20,8 @@
             "folder": "bluetoothC",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": "C"
         }
     },
     "GPIO": {
@@ -26,19 +29,22 @@
             "folder": "gpioPython",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": "Python"
         },
         "c": {
             "folder": "gpioC",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": "C"
         },
         "dotnet": {
             "folder": "gpioDotnet",
             "baseTemplate": "dotnetConsole",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": ".NET"
         }
     },
     "I2C": {
@@ -46,7 +52,8 @@
             "folder": "mpu6050Python",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": "Python"
         }
     },
     "PWM": {
@@ -54,7 +61,8 @@
             "folder": "pwmC",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": "C"
         }
     },
     "SPI": {
@@ -62,7 +70,8 @@
             "folder": "spiC",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": "C"
         }
     },
     "TFLITE": {
@@ -86,13 +95,15 @@
             "folder": "gpsPython",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": "Python"
         },
         "dotnet": {
             "folder": "uartDotnet",
             "baseTemplate": "dotnetConsole",
             "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Toradex"
+            "sampleSupport": "Toradex",
+            "language": ".NET"
         }
     }
 }
