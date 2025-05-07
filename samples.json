@@ -3,6 +3,7 @@
         {
             "folder": "C/adcC",
             "img": "adcC.png",
+            "description": "ADC C Sample",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
@@ -11,6 +12,7 @@
         {
             "folder": "python/adcPython",
             "img": "adcPython.png",
+            "description": "ADC Python Sample",
             "baseTemplate": "adcpython",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
@@ -21,6 +23,7 @@
         {
             "folder": "C/bluetoothC",
             "img": "bluetoothC.png",
+            "description": "Bluetooth C Sample",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
@@ -31,6 +34,7 @@
         {
             "folder": "python/gpioPython",
             "img": "gpioPython.png",
+            "description": "GPIO Python Sample",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
@@ -39,6 +43,7 @@
         {
             "folder": "C/gpioC",
             "img": "gpioC.png",
+            "description": "GPIO C Sample",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
@@ -47,6 +52,7 @@
         {
             "folder": "dotnet/gpioDotnet",
             "img": "gpioDotnet.png",
+            "description": "GPIO .NET Sample",
             "baseTemplate": "dotnetConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
@@ -57,6 +63,7 @@
         {
             "folder": "python/mpu6050Python",
             "img": "mpu60050Python.png",
+            "description": "I2C Python Sample using MPU6050 sensor",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
@@ -67,6 +74,7 @@
         {
             "folder": "C/pwmC",
             "img": "pwmC.png",
+            "description": "PWM C Sample",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
@@ -77,6 +85,7 @@
         {
             "folder": "C/spiC",
             "img": "spiC.png",
+            "description": "SPI C Sample",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
@@ -87,6 +96,7 @@
         {
             "folder": "python/gpsPython",
             "img": "gpsPython.png",
+            "description": "UART Python Sample using GPS sensor",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
@@ -95,6 +105,7 @@
         {
             "folder": "dotnet/uartDotnet",
             "img": "uartDotnet.png",
+            "description": "UART .NET Sample",
             "baseTemplate": "dotnetConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
