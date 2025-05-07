@@ -1,120 +1,104 @@
 {
-    "ADC": {
-        "c": {
-            "folder": "adcC",
+    "adc": [
+        {
+            "folder": "C/adcC",
             "img": "adcC.png",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": "C"
         },
-        "python": {
-            "folder": "adcPython",
+        {
+            "folder": "python/adcPython",
             "img": "adcPython.png",
             "baseTemplate": "adcpython",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": "Python"
         }
-    },
-    "BLUETOOTH": {
-        "c": {
-            "folder": "bluetoothC",
+    ],
+    "bluetooth": [
+        {
+            "folder": "C/bluetoothC",
             "img": "bluetoothC.png",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": "C"
         }
-    },
-    "GPIO": {
-        "python": {
-            "folder": "gpioPython",
+    ],
+    "gpio": [
+        {
+            "folder": "python/gpioPython",
             "img": "gpioPython.png",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": "Python"
         },
-        "c": {
-            "folder": "gpioC",
+        {
+            "folder": "C/gpioC",
             "img": "gpioC.png",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": "C"
         },
-        "dotnet": {
-            "folder": "gpioDotnet",
+        {
+            "folder": "dotnet/gpioDotnet",
             "img": "gpioDotnet.png",
             "baseTemplate": "dotnetConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": ".NET"
         }
-    },
-    "I2C": {
-        "python": {
-            "folder": "mpu6050Python",
+    ],
+    "i2c": [
+        {
+            "folder": "python/mpu6050Python",
             "img": "mpu60050Python.png",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": "Python"
         }
-    },
-    "PWM": {
-        "c": {
-            "folder": "pwmC",
+    ],
+    "pwm": [
+        {
+            "folder": "C/pwmC",
             "img": "pwmC.png",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": "C"
         }
-    },
-    "SPI": {
-        "c": {
-            "folder": "spiC",
+    ],
+    "spi": [
+        {
+            "folder": "C/spiC",
             "img": "spiC.png",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": "C"
         }
-    },
-    "TFLITE": {
-        "python": {
-            "folder": "tflitePythonVivante",
-            "baseTemplate": "python3Console",
-            "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Community"
-        }
-    },
-    "VPU": {
-        "generic": {
-            "folder": "vpuGeneric",
-            "baseTemplate": "genericTemplate",
-            "baseTemplateSupport": "Toradex",
-            "sampleSupport": "Community"
-        }
-    },
-    "UART": {
-        "python": {
-            "folder": "gpsPython",
+    ],
+    "uart": [
+        {
+            "folder": "python/gpsPython",
             "img": "gpsPython.png",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": "Python"
         },
-        "dotnet": {
-            "folder": "uartDotnet",
+        {
+            "folder": "dotnet/uartDotnet",
             "img": "uartDotnet.png",
             "baseTemplate": "dotnetConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
             "language": ".NET"
         }
-    }
+    ]
 }
