@@ -1,135 +1,134 @@
 {
-    "adc": [
+    "Samples": [
         {
-            "folder": "C/adcC",
+            "sampleType": "ADC",
+            "language": "C",
+            "folder": "adc/C/adcC",
             "img": "adcC.png",
             "description": "ADC C Sample",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": "C",
             "status": "ok",
             "customMessage": ""
         },
         {
-            "folder": "python/adcPython",
+            "sampleType": "ADC",
+            "language": "Python",
+            "folder": "adc/python/adcPython",
             "img": "adcPython.png",
             "description": "ADC Python Sample",
             "baseTemplate": "adcpython",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": "Python",
             "status": "ok",
             "customMessage": ""
-        }
-    ],
-    "bluetooth": [
+        },
         {
-            "folder": "C/bluetoothC",
+            "sampleType": "Bluetooth",
+            "language": "C",
+            "folder": "bluetooth/C/bluetoothC",
             "img": "bluetoothC.png",
             "description": "Bluetooth C Sample",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": "C",
             "status": "ok",
             "customMessage": ""
-        }
-    ],
-    "gpio": [
+        },
         {
-            "folder": "python/gpioPython",
+            "sampleType": "GPIO",
+            "language": "Python",
+            "folder": "gpio/python/gpioPython",
             "img": "gpioPython.png",
             "description": "GPIO Python Sample",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": "Python",
             "status": "ok",
             "customMessage": ""
         },
         {
-            "folder": "C/gpioC",
+            "sampleType": "GPIO",
+            "language": "C",
+            "folder": "gpio/C/gpioC",
             "img": "gpioC.png",
             "description": "GPIO C Sample",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": "C",
             "status": "ok",
             "customMessage": ""
         },
         {
-            "folder": "dotnet/gpioDotnet",
+            "sampleType": "GPIO",
+            "language": ".NET",
+            "folder": "gpio/dotnet/gpioDotnet",
             "img": "gpioDotnet.png",
             "description": "GPIO .NET Sample",
             "baseTemplate": "dotnetConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": ".NET",
             "status": "ok",
             "customMessage": ""
-        }
-    ],
-    "i2c": [
+        },
         {
-            "folder": "python/mpu6050Python",
-            "img": "mpu60050Python.png",
+            "sampleType": "I2C",
+            "language": "Python",
+            "folder": "i2c/python/mpu6050Python",
+            "img": "mpu6050Python.png",
             "description": "I2C Python Sample using MPU6050 sensor",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": "Python",
             "status": "ok",
             "customMessage": ""
-        }
-    ],
-    "pwm": [
+        },
         {
-            "folder": "C/pwmC",
+            "sampleType": "PWM",
+            "language": "C",
+            "folder": "pwm/C/pwmC",
             "img": "pwmC.png",
             "description": "PWM C Sample",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": "C",
             "status": "ok",
             "customMessage": ""
-        }
-    ],
-    "spi": [
+        },
         {
-            "folder": "C/spiC",
+            "sampleType": "SPI",
+            "language": "C",
+            "folder": "spi/C/spiC",
             "img": "spiC.png",
             "description": "SPI C Sample",
             "baseTemplate": "cppConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": "C",
             "status": "ok",
             "customMessage": ""
-        }
-    ],
-    "uart": [
+        },
         {
-            "folder": "python/gpsPython",
+            "sampleType": "UART",
+            "language": "Python",
+            "folder": "uart/python/gpsPython",
             "img": "gpsPython.png",
             "description": "UART Python Sample using GPS sensor",
             "baseTemplate": "python3Console",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": "Python",
             "status": "ok",
             "customMessage": ""
         },
         {
-            "folder": "dotnet/uartDotnet",
+            "sampleType": "UART",
+            "language": ".NET",
+            "folder": "uart/dotnet/uartDotnet",
             "img": "uartDotnet.png",
             "description": "UART .NET Sample",
             "baseTemplate": "dotnetConsole",
             "baseTemplateSupport": "Toradex",
             "sampleSupport": "Toradex",
-            "language": ".NET",
             "status": "ok",
             "customMessage": ""
         }
