@@ -131,6 +131,30 @@
             "sampleSupport": "Toradex",
             "status": "ok",
             "customMessage": ""
+        },
+        {
+            "sampleType": "TFLite",
+            "language": "Python",
+            "folder": "tflite/python/tflitePythonVivante",
+            "img": "tflitePythonVivante.png",
+            "description": "Tensorflow Lite Python Sample for Vivante GPU (IMX8 boards)",
+            "baseTemplate": "python3Console",
+            "baseTemplateSupport": "Toradex",
+            "sampleSupport": "Community",
+            "status": "ok",
+            "customMessage": ""
+        },
+        {
+            "sampleType": "VPU",
+            "language": "bash",
+            "folder": "vpu/generic/vpuGeneric",
+            "img": "vpuGeneric.png",
+            "description": "VPU Sample for Vivante GPU (IMX8 boards)",
+            "baseTemplate": "genericTemplate",
+            "baseTemplateSupport": "Toradex",
+            "sampleSupport": "Community",
+            "status": "ok",
+            "customMessage": ""
         }
     ]
 }
