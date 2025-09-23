@@ -1,0 +1,97 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:dotnetAvaloniaHATest.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="dotnetAvaloniaHATest.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <ScrollViewer>
+        <StackPanel Margin="20" Spacing="20">
+            <!-- Header -->
+            <TextBlock Text="{Binding Greeting}" 
+                       FontSize="24" 
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20" />
+
+            <!-- Hardware Acceleration Status -->
+            <Border Background="{Binding IsHardwareAccelerated, Converter={x:Static vm:MainWindowViewModel.AccelerationStatusConverter}}"
+                    CornerRadius="8" 
+                    Padding="15">
+                <StackPanel Spacing="10">
+                    <TextBlock Text="Hardware Acceleration Status" 
+                               FontSize="18" 
+                               FontWeight="SemiBold" 
+                               Foreground="White" />
+                    <TextBlock Text="{Binding IsHardwareAccelerated, Converter={x:Static vm:MainWindowViewModel.AccelerationTextConverter}}" 
+                               FontSize="16" 
+                               FontWeight="Bold" 
+                               Foreground="White" />
+                </StackPanel>
+            </Border>
+
+            <!-- Hardware Information -->
+            <Border Background="LightGray" 
+                    CornerRadius="8" 
+                    Padding="15">
+                <StackPanel Spacing="10">
+                    <TextBlock Text="System Information" 
+                               FontSize="18" 
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding HardwareInfo}" 
+                               FontFamily="Consolas,Monaco,Courier New,monospace"
+                               FontSize="12"
+                               TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <!-- Detailed Report -->
+            <Expander Header="Detailed Hardware Report" 
+                      IsExpanded="False">
+                <Border Background="WhiteSmoke" 
+                        CornerRadius="4" 
+                        Padding="10" 
+                        Margin="0,10,0,0">
+                    <TextBlock Text="{Binding DetailedReport}" 
+                               FontFamily="Consolas,Monaco,Courier New,monospace"
+                               FontSize="11"
+                               TextWrapping="Wrap" />
+                </Border>
+            </Expander>
+
+            <!-- Instructions -->
+            <Border Background="LightBlue" 
+                    CornerRadius="8" 
+                    Padding="15">
+                <StackPanel Spacing="10">
+                    <TextBlock Text="Instructions" 
+                               FontSize="16" 
+                               FontWeight="SemiBold" />
+                    <TextBlock TextWrapping="Wrap">
+                        <Run Text="This application tests hardware acceleration capabilities on your system. "/>
+                        <Run Text="Green status indicates hardware acceleration is working. "/>
+                        <Run Text="Red status indicates software rendering is being used. "/>
+                        <LineBreak/>
+                        <LineBreak/>
+                        <Run Text="For optimal performance on embedded systems, ensure: "/>
+                        <LineBreak/>
+                        <Run Text="• GPU drivers are properly installed"/>
+                        <LineBreak/>
+                        <Run Text="• EGL libraries are available (Linux)"/>
+                        <LineBreak/>
+                        <Run Text="• Hardware acceleration is enabled in system settings"/>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+
+</UserControl>

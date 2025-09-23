@@ -1,0 +1,14 @@
+[
+    {
+        "source": ".cargo/config.toml",
+        "target": ".cargo/config.toml"
+    },
+    {
+        "source": "Cargo.toml",
+        "target": "Cargo.toml"
+    },
+    {
+        "source": "build.rs",
+        "target": "build.rs"
+    }
+]

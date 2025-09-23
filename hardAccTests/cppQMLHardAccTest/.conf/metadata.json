@@ -1,0 +1,24 @@
+{
+    "projectName": "cppQMLHATest",
+    "templateName": "cppQML",
+    "containerName": "undefined",
+    "torizonOSMajor": "7",
+    "hasCustomFields": true,
+    "customFields": [
+        {
+            "id": "qt_license_login",
+            "value": "",
+            "type": "text"
+        },
+        {
+            "id": "qt_license_password",
+            "value": "secret",
+            "type": "password"
+        },
+        {
+            "id": "container",
+            "value": "cppqml-ha-test",
+            "type": "text"
+        }
+    ]
+}

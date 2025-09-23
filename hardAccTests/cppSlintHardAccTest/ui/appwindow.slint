@@ -1,0 +1,165 @@
+import { Button, HorizontalBox, VerticalBox, ScrollView, GroupBox } from "std-widgets.slint";
+
+export struct HardwareInfo {
+    platform: string,
+    graphics-card: string,
+    opengl-version: string,
+    opengl-vendor: string,
+    opengl-renderer: string,
+    rendering-backend: string,
+    is-hardware-accelerated: bool,
+    is-software-rendering: bool,
+    is-egl-supported: bool,
+    surface-format: string,
+}
+
+export component AppWindow inherits Window {
+    in-out property<HardwareInfo> hardware-info: {
+        platform: "Loading...",
+        graphics-card: "Loading...",
+        opengl-version: "Loading...",
+        opengl-vendor: "Loading...",
+        opengl-renderer: "Loading...",
+        rendering-backend: "Loading...",
+        is-hardware-accelerated: false,
+        is-software-rendering: true,
+        is-egl-supported: false,
+        surface-format: "Loading...",
+    };
+    
+    in-out property<string> hardware-info-text: "Loading hardware information...";
+    in-out property<string> detailed-report: "";
+    in-out property<bool> is-loading: true;
+    in-out property<bool> show-detailed-report: false;
+    
+    callback refresh-hardware-info();
+    callback toggle-detailed-report();
+    
+    title: "Hardware Acceleration Test - Slint with Torizon";
+    width: 800px;
+    height: 600px;
+    
+    ScrollView {
+        VerticalBox {
+            padding: 20px;
+            spacing: 20px;
+            
+            // Header
+            Text {
+                text: "Welcome to Slint Hardware Acceleration Test with Torizon!";
+                font-size: 24px;
+                font-weight: 700;
+                horizontal-alignment: center;
+                wrap: word-wrap;
+            }
+            
+            // Hardware Acceleration Status
+            Rectangle {
+                background: root.hardware-info.is-hardware-accelerated ? #4CAF50 : #F44336;
+                border-radius: 8px;
+                min-height: 100px;
+                
+                VerticalBox {
+                    padding: 15px;
+                    spacing: 10px;
+                    alignment: center;
+                    
+                    Text {
+                        text: "Hardware Acceleration Status";
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: white;
+                        horizontal-alignment: center;
+                    }
+                    
+                    Text {
+                        text: root.hardware-info.is-hardware-accelerated ? 
+                              "✅ Hardware Acceleration: ENABLED" : 
+                              "❌ Hardware Acceleration: DISABLED (Software Rendering)";
+                        font-size: 16px;
+                        font-weight: 700;
+                        color: white;
+                        horizontal-alignment: center;
+                        wrap: word-wrap;
+                    }
+                }
+            }
+            
+            // System Information
+            GroupBox {
+                title: "System Information";
+                
+                VerticalBox {
+                    spacing: 10px;
+                    
+                    Text {
+                        text: root.hardware-info-text;
+                        font-family: "monospace";
+                        font-size: 12px;
+                        wrap: word-wrap;
+                    }
+                }
+            }
+            
+            // Detailed Report (Expandable)
+            VerticalBox {
+                spacing: 10px;
+                
+                Button {
+                    text: root.show-detailed-report ? "▼ Hide Detailed Hardware Report" : "▶ Show Detailed Hardware Report";
+                    clicked => {
+                        root.toggle-detailed-report();
+                    }
+                }
+                
+                if root.show-detailed-report: GroupBox {
+                    title: "Detailed Hardware Report";
+                    
+                    Text {
+                        text: root.detailed-report;
+                        font-family: "monospace";
+                        font-size: 11px;
+                        wrap: word-wrap;
+                    }
+                }
+            }
+            
+            // Instructions
+            GroupBox {
+                title: "Instructions";
+                
+                Text {
+                    text: "This application tests hardware acceleration capabilities on your system. " +
+                          "Green status indicates hardware acceleration is working. " +
+                          "Red status indicates software rendering is being used.\n\n" +
+                          "For optimal performance on embedded systems, ensure:\n" +
+                          "• GPU drivers are properly installed\n" +
+                          "• EGL libraries are available (Linux)\n" +
+                          "• Hardware acceleration is enabled in system settings";
+                    font-size: 12px;
+                    wrap: word-wrap;
+                }
+            }
+            
+            // Control Buttons
+            HorizontalBox {
+                alignment: center;
+                spacing: 10px;
+                
+                Button {
+                    text: "Refresh Hardware Information";
+                    enabled: !root.is-loading;
+                    clicked => {
+                        root.refresh-hardware-info();
+                    }
+                }
+                
+                if root.is-loading: Text {
+                    text: "Loading...";
+                    font-size: 14px;
+                    color: #666;
+                }
+            }
+        }
+    }
+}

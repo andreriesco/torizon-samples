@@ -1,0 +1,8 @@
+{
+    "projectName": "cLvglHATest",
+    "templateName": "cLvgl",
+    "containerName": "clvgl-ha-test",
+    "torizonOSMajor": "7",
+    "hasCustomFields": false,
+    "customFields": []
+}

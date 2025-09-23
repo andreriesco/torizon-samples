@@ -1,0 +1,8 @@
+{
+    "projectName": "rustSlintHATest",
+    "templateName": "rustSlint",
+    "containerName": "rustslint-ha-test",
+    "torizonOSMajor": "7",
+    "hasCustomFields": false,
+    "customFields": []
+}

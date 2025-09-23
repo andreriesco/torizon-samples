@@ -1,0 +1,11 @@
+/target
+Cargo.lock
+
+credentials.zip
+*.lock.yml
+
+.conf/.depok
+.conf/.docok
+.store-*
+
+executable-*

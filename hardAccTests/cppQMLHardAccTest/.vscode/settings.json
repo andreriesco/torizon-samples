@@ -1,0 +1,37 @@
+{
+    "torizon_debug_ssh_port": "2231",
+    "torizon_debug_port1": "2232",
+    "torizon_debug_port2": "2233",
+    "torizon_debug_port3": "",
+    "qtForPython.rcc.liveExecution.enabled": false,
+    "qtForPython.qmlls.path": "/usr/lib/qt6/bin/qmlls",
+    "qtForPython.qmlls.enabled": true,
+    "files.associations": {
+        "*.pro": "makefile"
+    },
+    "qt_license_login": "",
+    "qt_license_password": "secret",
+    "torizon_psswd": "123",
+    "torizon_login": "torizon",
+    "torizon_ip": "192.168.31.165",
+    "torizon_ssh_port": "22",
+    "host_ip": "192.168.31.32",
+    "torizon_workspace": "${workspaceFolder}",
+    "torizon_gpu": "-am62",
+    "torizon_arch": "aarch64",
+    "wait_sync": "1",
+    "torizon_run_as": "torizon",
+    "torizon_app_root": "/home/torizon/app",
+    "docker_tag": "v0.0.0",
+    "tcb.packageName": "cppQMLHATest",
+    "tcb.version": "3.13.0",
+    "torizon.gpuPrefixRC": true,
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "containers.environment": {
+        "DOCKER_HOST": "tcp://192.168.31.165:2375",
+        "DEBUG_SSH_PORT": "2231",
+        "DEBUG_PORT1": "2232",
+        "DEBUG_PORT2": "2233",
+        "DEBUG_PORT3": ""
+    }
+}

@@ -1,0 +1,109 @@
+services:
+  cppqml-ha-test-debug:
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+      secrets:
+        - qt-feed-auth
+    image: ${LOCAL_REGISTRY}:5002/cppqml-ha-test-debug:${TAG}
+    ports:
+      # SSH debug
+      - ${DEBUG_SSH_PORT}:${DEBUG_SSH_PORT}
+      # gdbserver
+      - ${DEBUG_PORT1}:${DEBUG_PORT1}
+      # qml debug
+      - ${DEBUG_PORT2}:${DEBUG_PORT2}
+    volumes:
+      - type: bind
+        source: /tmp
+        target: /tmp
+      - type: bind
+        source: /dev
+        target: /dev
+    device_cgroup_rules:
+      # ... for tty
+      - "c 4:* rmw"
+      # ... for /dev/input devices
+      - "c 13:* rmw"
+      - "c 199:* rmw"
+      # ... for /dev/dri devices
+      - "c 226:* rmw"
+    profiles:
+      - debug
+    depends_on:
+      weston:
+        condition: service_healthy
+
+
+  cppqml-ha-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      secrets:
+        - qt-feed-auth
+    image: ${DOCKER_LOGIN}/cppqml-ha-test:${TAG}
+    volumes:
+      - type: bind
+        source: /tmp
+        target: /tmp
+      - type: bind
+        source: /dev
+        target: /dev
+    device_cgroup_rules:
+      # ... for tty
+      - "c 4:* rmw"
+      # ... for /dev/input devices
+      - "c 13:* rmw"
+      - "c 199:* rmw"
+      # ... for /dev/dri devices
+      - "c 226:* rmw"
+    profiles:
+      - release
+    depends_on:
+      weston:
+        condition: service_healthy
+
+
+  weston:
+    image: torizon/weston${GPU}:4
+    environment:
+      - ACCEPT_FSL_EULA=1
+    # Required to get udev events from host udevd via netlink
+    network_mode: host
+    volumes:
+      - type: bind
+        source: /tmp
+        target: /tmp
+      - type: bind
+        source: /dev
+        target: /dev
+      - type: bind
+        source: /run/udev
+        target: /run/udev
+    cap_add:
+      - CAP_SYS_TTY_CONFIG
+    # Add device access rights through cgroup...
+    device_cgroup_rules:
+      # ... for tty
+      - "c 4:* rmw"
+      # ... for /dev/input devices
+      - "c 13:* rmw"
+      # ... for /dev/galcore
+      - "c 199:* rmw"
+      # ... for /dev/dri devices
+      - "c 226:* rmw"
+      # ... for /dev/dma_heap device
+      - "c 253:* rmw"
+    profiles:
+      - release
+      - debug
+    healthcheck:
+      test: ["CMD", "test", "-S", "/tmp/1000-runtime-dir/wayland-0"]
+      interval: 5s
+      timeout: 4s
+      retries: 6
+      start_period: 10s
+
+secrets:
+  qt-feed-auth:
+    file: ./.conf/qt6-enterprise/qt-feed-auth.conf

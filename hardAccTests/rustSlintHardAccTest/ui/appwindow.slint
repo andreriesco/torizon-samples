@@ -1,0 +1,278 @@
+// Hardware Acceleration Info Structure
+export struct HardwareInfo {
+    is-hardware-accelerated: bool,
+    rendering-backend: string,
+    opengl-version: string,
+    opengl-vendor: string,
+    opengl-renderer: string,
+    graphics-card: string,
+    is-egl-supported: bool,
+    is-software-rendering: bool,
+    platform: string,
+    surface-format: string,
+    detailed-report: string,
+}
+
+component StatusIndicator inherits Rectangle {
+    in property <bool> is-active;
+    
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background: is-active ? #4CAF50 : #F44336;
+}
+
+component InfoCard inherits Rectangle {
+    in property <string> title;
+    in property <string> value;
+    in property <bool> status-indicator: false;
+    in property <bool> status-value: false;
+    
+    height: 40px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: #e0e0e0;
+    
+    HorizontalLayout {
+        padding: 8px;
+        spacing: 8px;
+        
+        if (status-indicator) : StatusIndicator {
+            is-active: status-value;
+        }
+        
+        VerticalLayout {
+            Text {
+                text: title;
+                font-size: 12px;
+                color: #666;
+            }
+            
+            Text {
+                text: value;
+                font-size: 14px;
+                font-weight: 600;
+                color: #333;
+            }
+        }
+    }
+}
+
+export component AppWindow inherits Window {
+    width: 800px;
+    height: 600px;
+    title: "Hardware Acceleration Test - Rust Slint";
+    
+    in-out property <HardwareInfo> hardware-info: {
+        is-hardware-accelerated: false,
+        rendering-backend: "Loading...",
+        opengl-version: "Loading...",
+        opengl-vendor: "Loading...",
+        opengl-renderer: "Loading...",
+        graphics-card: "Loading...",
+        is-egl-supported: false,
+        is-software-rendering: true,
+        platform: "Loading...",
+        surface-format: "Loading...",
+        detailed-report: "Loading hardware information...",
+    };
+    
+    in-out property <bool> show-details: false;
+    in-out property <bool> is-loading: true;
+    
+    callback refresh-hardware-info();
+    callback toggle-details();
+    
+    VerticalLayout {
+        padding: 20px;
+        spacing: 20px;
+        
+        // Header
+        HorizontalLayout {
+            Text {
+                text: "Hardware Acceleration Status";
+                font-size: 24px;
+                font-weight: 700;
+                color: #333;
+                horizontal-alignment: left;
+            }
+            
+            Rectangle {
+                // Takes remaining space
+            }
+            
+            Rectangle {
+                width: 100px;
+                height: 40px;
+                background: #2196F3;
+                border-radius: 4px;
+                
+                TouchArea {
+                    clicked => {
+                        refresh-hardware-info();
+                    }
+                }
+                
+                Text {
+                    text: "Refresh";
+                    color: white;
+                    font-weight: 600;
+                }
+            }
+        }
+        
+        // Loading indicator
+        if (is-loading) : Text {
+            text: "Loading hardware information...";
+            font-size: 16px;
+            color: #666;
+            horizontal-alignment: center;
+        }
+        
+        // Main status card
+        if (!is-loading) : Rectangle {
+            height: 120px;
+            background: hardware-info.is-hardware-accelerated ? #E8F5E8 : #FFEBEE;
+            border-radius: 8px;
+            border-width: 2px;
+            border-color: hardware-info.is-hardware-accelerated ? #4CAF50 : #F44336;
+            
+            VerticalLayout {
+                padding: 20px;
+                spacing: 10px;
+                
+                HorizontalLayout {
+                    spacing: 10px;
+                    
+                    StatusIndicator {
+                        is-active: hardware-info.is-hardware-accelerated;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 10px;
+                    }
+                    
+                    Text {
+                        text: hardware-info.is-hardware-accelerated ? "Hardware Acceleration: ENABLED" : "Hardware Acceleration: DISABLED";
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: hardware-info.is-hardware-accelerated ? #2E7D32 : #C62828;
+                    }
+                }
+                
+                Text {
+                    text: hardware-info.rendering-backend + " | " + hardware-info.graphics-card;
+                    font-size: 14px;
+                    color: #666;
+                    horizontal-alignment: left;
+                }
+                
+                Text {
+                    text: hardware-info.opengl-renderer;
+                    font-size: 14px;
+                    color: #666;
+                    horizontal-alignment: left;
+                }
+            }
+        }
+        
+        // Info cards grid
+        if (!is-loading) : VerticalLayout {
+            spacing: 10px;
+            
+            HorizontalLayout {
+                spacing: 10px;
+                
+                InfoCard {
+                    title: "Platform";
+                    value: hardware-info.platform;
+                }
+                
+                InfoCard {
+                    title: "Rendering Backend";
+                    value: hardware-info.rendering-backend;
+                }
+            }
+            
+            HorizontalLayout {
+                spacing: 10px;
+                
+                InfoCard {
+                    title: "OpenGL Version";
+                    value: hardware-info.opengl-version;
+                }
+                
+                InfoCard {
+                    title: "OpenGL Vendor";
+                    value: hardware-info.opengl-vendor;
+                }
+            }
+            
+            HorizontalLayout {
+                spacing: 10px;
+                
+                InfoCard {
+                    title: "Software Rendering";
+                    value: hardware-info.is-software-rendering ? "Yes" : "No";
+                    status-indicator: true;
+                    status-value: !hardware-info.is-software-rendering;
+                }
+                
+                InfoCard {
+                    title: "EGL Support";
+                    value: hardware-info.is-egl-supported ? "Yes" : "No";
+                    status-indicator: true;
+                    status-value: hardware-info.is-egl-supported;
+                }
+            }
+        }
+        
+        // Details section
+        if (!is-loading) : VerticalLayout {
+            spacing: 10px;
+            
+            Rectangle {
+                height: 40px;
+                background: #f0f0f0;
+                border-radius: 4px;
+                
+                TouchArea {
+                    clicked => {
+                        toggle-details();
+                    }
+                }
+                
+                HorizontalLayout {
+                    padding: 10px;
+                    spacing: 10px;
+                    
+                    Text {
+                        text: show-details ? "▼ Hide Detailed Report" : "▶ Show Detailed Report";
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #333;
+                    }
+                }
+            }
+            
+            if (show-details) : Rectangle {
+                height: 200px;
+                background: #fafafa;
+                border-radius: 4px;
+                border-width: 1px;
+                border-color: #e0e0e0;
+                
+                Text {
+                    x: 10px;
+                    y: 10px;
+                    width: parent.width - 20px;
+                    text: hardware-info.detailed-report;
+                    font-family: "monospace";
+                    font-size: 12px;
+                    color: #333;
+                    wrap: word-wrap;
+                }
+            }
+        }
+    }
+}

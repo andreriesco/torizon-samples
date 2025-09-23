@@ -1,0 +1,8 @@
+{
+    "projectName": "dotnetAvaloniaHATest",
+    "templateName": "dotnetAvaloniaFrameBuffer",
+    "containerName": "dotnetavalonia-ha-test",
+    "torizonOSMajor": "7",
+    "hasCustomFields": false,
+    "customFields": []
+}

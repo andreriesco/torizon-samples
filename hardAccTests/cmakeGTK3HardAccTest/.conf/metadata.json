@@ -1,0 +1,8 @@
+{
+    "projectName": "cmakeGTK3HATest",
+    "templateName": "cmakeGTK3",
+    "containerName": "cmakegtk3-ha-test",
+    "torizonOSMajor": "7",
+    "hasCustomFields": false,
+    "customFields": []
+}

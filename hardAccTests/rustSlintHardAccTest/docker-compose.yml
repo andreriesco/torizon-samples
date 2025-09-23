@@ -1,0 +1,59 @@
+services:
+  rustslint-ha-test-debug:
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+    image: ${LOCAL_REGISTRY}:5002/rustslint-ha-test-debug:${TAG}
+    environment:
+      - ACCEPT_FSL_EULA=1
+    ports:
+      - ${DEBUG_SSH_PORT}:${DEBUG_SSH_PORT}
+      - ${DEBUG_PORT1}:${DEBUG_PORT1}
+    volumes:
+      - type: bind
+        source: /tmp
+        target: /tmp
+      - type: bind
+        source: /dev
+        target: /dev
+      - type: bind
+        source: /run/udev
+        target: /run/udev
+    device_cgroup_rules:
+      # ... for tty
+      - "c 4:* rmw"
+      # ... for /dev/input devices
+      - "c 13:* rmw"
+      - "c 199:* rmw"
+      # ... for /dev/dri devices
+      - "c 226:* rmw"
+    profiles:
+      - debug
+      
+  rustslint-ha-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${DOCKER_LOGIN}/rustslint-ha-test:${TAG}
+    environment:
+      - ACCEPT_FSL_EULA=1
+    volumes:
+      - type: bind
+        source: /tmp
+        target: /tmp
+      - type: bind
+        source: /dev
+        target: /dev
+      - type: bind
+        source: /run/udev
+        target: /run/udev
+    device_cgroup_rules:
+      # ... for tty
+      - "c 4:* rmw"
+      # ... for /dev/input devices
+      - "c 13:* rmw"
+      - "c 199:* rmw"
+      # ... for /dev/dri devices
+      - "c 226:* rmw"
+    profiles:
+      - release

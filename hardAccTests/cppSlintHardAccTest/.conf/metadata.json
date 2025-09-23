@@ -1,0 +1,8 @@
+{
+    "projectName": "cppSlintHATest",
+    "templateName": "cppSlint",
+    "containerName": "cppslint-ha-test",
+    "torizonOSMajor": "7",
+    "hasCustomFields": false,
+    "customFields": []
+}
